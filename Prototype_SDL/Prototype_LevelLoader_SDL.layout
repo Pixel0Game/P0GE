@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="control.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="302" topLine="0" />
+	</File>
+	<File name="control.h" open="1" top="0" tabpos="7">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="display.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="4010" topLine="55" />
+	</File>
+	<File name="display.h" open="1" top="0" tabpos="6">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1899" topLine="12" />
+	</File>
+	<File name="readMap.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="20" topLine="0" />
+	</File>
+	<File name="readMap.h" open="1" top="0" tabpos="5">
+		<Cursor position="56" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
