@@ -7,23 +7,23 @@
 
 void displayLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int* mapTable, int xSize, int ySize)
 {
-    SDL_Surface* blue = IMG_Load("graph/Colors/blue.png");
-    SDL_Surface* red = IMG_Load("graph/Colors/red.png");
-    SDL_Surface* green = IMG_Load("graph/Colors/green.png");
-    SDL_Surface* luc = IMG_Load("graph/Map/Angle_UL_Black.png");
-    SDL_Surface* ruc = IMG_Load("graph/Map/Angle_UR_Black.png");
-    SDL_Surface* ldc = IMG_Load("graph/Map/Angle_DL_Black.png");
-    SDL_Surface* rdc = IMG_Load("graph/Map/Angle_DR_Black.png");
-    SDL_Surface* lb = IMG_Load("graph/Map/L_Black.png");
-    SDL_Surface* rb = IMG_Load("graph/Map/R_Black.png");
-    SDL_Surface* ub = IMG_Load("graph/Map/U_Black.png");
-    SDL_Surface* db = IMG_Load("graph/Map/D_Black.png");
-    SDL_Surface* cypher = IMG_Load("graph/Map/White.png");
-    SDL_Surface* uP = IMG_Load("graph/Papercraft/up.png");
-    SDL_Surface* dP = IMG_Load("graph/Papercraft/down.png");
-    SDL_Surface* rP = IMG_Load("graph/Papercraft/right.png");
-    SDL_Surface* lP = IMG_Load("graph/Papercraft/left.png");
-    SDL_Surface** Papercraft = &uP;
+    ///Chargement des images
+        SDL_Surface* map [15] = {NULL};
+        map[0] = IMG_Load("graph/Map/Angle_UL_Black.png");
+        map[1] = IMG_Load("graph/Map/Angle_UR_Black.png");
+        map[2] = IMG_Load("graph/Map/Angle_DL_Black.png");
+        map[3] = IMG_Load("graph/Map/Angle_DR_Black.png");
+        map[4] = IMG_Load("graph/Map/L_Black.png");
+        map[5] = IMG_Load("graph/Map/R_Black.png");
+        map[6] = IMG_Load("graph/Map/U_Black.png");
+        map[7] = IMG_Load("graph/Map/D_Black.png");
+        map[8] = IMG_Load("graph/Map/White.png");
+        SDL_Surface* uP = IMG_Load("graph/Papercraft/up.png");
+        SDL_Surface* dP = IMG_Load("graph/Papercraft/down.png");
+        SDL_Surface* rP = IMG_Load("graph/Papercraft/right.png");
+        SDL_Surface* lP = IMG_Load("graph/Papercraft/left.png");
+        SDL_Surface** Papercraft = &uP;
+    ///Fin du chargement.
 
     SDL_Rect position;
         position.x = (0);
@@ -35,6 +35,7 @@ void displayLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, 
     bool done(false);
     bool movement(false);
     SDL_EnableKeyRepeat(100, 100);
+
     while (!done)
     {
         //Attente d'un événement
@@ -78,38 +79,32 @@ void displayLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, 
                             position.y = (y*ySize);
                             switch (mapTable[x*yC+y])
                                 {
-                                    case 0:
-                                        SDL_BlitSurface(red, 0, screen, &position);
-                                        break;
-                                    case 1:
-                                        SDL_BlitSurface(blue, 0, screen, &position);
-                                        break;
                                     case 'z':
-                                        SDL_BlitSurface(luc, 0, screen, &position);
+                                        SDL_BlitSurface(map [0], 0, screen, &position);
                                         break;
                                     case 'e':
-                                        SDL_BlitSurface(ub, 0, screen, &position);
+                                        SDL_BlitSurface(map[6], 0, screen, &position);
                                         break;
                                     case 'r':
-                                        SDL_BlitSurface(ruc, 0, screen, &position);
+                                        SDL_BlitSurface(map[1], 0, screen, &position);
                                         break;
                                     case 's':
-                                        SDL_BlitSurface(lb, 0, screen, &position);
+                                        SDL_BlitSurface(map[4], 0, screen, &position);
                                         break;
                                     case 'd':
-                                        SDL_BlitSurface(cypher, 0, screen, &position);
+                                        SDL_BlitSurface(map[8], 0, screen, &position);
                                         break;
                                     case 'f':
-                                        SDL_BlitSurface(rb, 0, screen, &position);
+                                        SDL_BlitSurface(map[5], 0, screen, &position);
                                         break;
                                     case 'x':
-                                        SDL_BlitSurface(ldc, 0, screen, &position);
+                                        SDL_BlitSurface(map[2], 0, screen, &position);
                                         break;
                                     case 'c':
-                                        SDL_BlitSurface(db, 0, screen, &position);
+                                        SDL_BlitSurface(map[7], 0, screen, &position);
                                         break;
                                     case 'v':
-                                        SDL_BlitSurface(rdc, 0, screen, &position);
+                                        SDL_BlitSurface(map[3], 0, screen, &position);
                                         break;
                                 }
                         }
@@ -125,8 +120,13 @@ void displayLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, 
         }
 
     }
-
-    SDL_FreeSurface(red);
-    SDL_FreeSurface(blue);
-    SDL_FreeSurface(green);
+        //! Free Map for TODO
+        for (x=0;x<15;x++)
+        {
+            SDL_FreeSurface(map[x]);
+        }
+        SDL_FreeSurface(uP);
+        SDL_FreeSurface(dP);
+        SDL_FreeSurface(rP);
+        SDL_FreeSurface(lP);
 }

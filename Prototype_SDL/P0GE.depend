@@ -216,3 +216,34 @@
 	"display.h"
 	"control.h"
 
+1333994993 source:c:\users\louis\p0ge\prototype_sdl\display.cpp
+	<SDL.h>
+	<SDL_image.h>
+	"display.h"
+	"control.h"
+
+1333189590 c:\users\louis\p0ge\prototype_sdl\display.h
+
+1333189590 c:\users\louis\p0ge\prototype_sdl\control.h
+
+1333308406 source:c:\users\louis\p0ge\prototype_sdl\main.cpp
+	<iostream>
+	<string>
+	"readMap.h"
+	<SDL.h>
+	<SDL_image.h>
+	"display.h"
+
+1333189590 c:\users\louis\p0ge\prototype_sdl\readmap.h
+
+1333189590 source:c:\users\louis\p0ge\prototype_sdl\readmap.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"readMap.h"
+
+1333309134 source:c:\users\louis\p0ge\prototype_sdl\control.cpp
+	<iostream>
+	<SDL.h>
+	"control.h"
+

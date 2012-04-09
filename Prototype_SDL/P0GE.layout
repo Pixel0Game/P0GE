@@ -2,12 +2,12 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="control.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="191" topLine="0" />
+		<Cursor position="194" topLine="0" />
 	</File>
 	<File name="display.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="2725" topLine="54" />
+		<Cursor position="5429" topLine="81" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="261" topLine="64" />
+		<Cursor position="1866" topLine="64" />
 	</File>
 </CodeBlocks_layout_file>

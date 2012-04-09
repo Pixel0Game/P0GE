@@ -82,6 +82,7 @@ int main ( int argc, char** argv )
     ///Fonction d'affichage.
     displayLoop(screen, planeX, planeY, xC, yC, &mapTable[0][0], xSize, ySize);
 
+    SDL_FreeSurface(screen);
     //Tout les voyants sont au vert !
     printf("Exited cleanly\n");
     return 0;
