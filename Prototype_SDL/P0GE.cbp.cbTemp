@@ -48,8 +48,6 @@
 		<Unit filename="control.h" />
 		<Unit filename="display.cpp" />
 		<Unit filename="display.h" />
-		<Unit filename="event.cpp" />
-		<Unit filename="event.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="readMap.cpp" />
 		<Unit filename="readMap.h" />

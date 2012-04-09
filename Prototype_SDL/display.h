@@ -1,6 +1,6 @@
 #ifndef DISPLAY_INCLUDED
 #define DISPLAY_INCLUDED
 
-    void displayLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int* mapTable, int xSize, int ySize);//Boucle d'affichage
+    SDL_Surface* displayLoop(SDL_Surface* screen, int const xC, int const yC, int* mapTable, int xSize, int ySize, SDL_Rect position, SDL_Rect mainPosition, SDL_Surface* map[], SDL_Surface** PaperCraft);//Boucle d'affichage
 
 #endif // DISPLAY_INCLUDED
