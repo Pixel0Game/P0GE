@@ -99,6 +99,15 @@ int main ( int argc, char** argv )
     mainLoop(screen, planeX, planeY, xC, yC, zC, mapTable, xSize, ySize);
 
     SDL_FreeSurface(screen);
+    for (x=0; x<xC; x++)
+    {
+        for (y=0; y<yC; y++)
+        {
+            delete mapTable[x][y];
+        }
+        delete mapTable[x];
+    }
+    delete mapTable;
     //Tout les voyants sont au vert !
     printf("Exited cleanly\n");
     return 0;
