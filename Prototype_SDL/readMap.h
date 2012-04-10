@@ -3,6 +3,6 @@
 
     using namespace std;
 
-    void readMap(int* xMaxOutput, int* yMaxOutput, string* dataOutput, int* xSizeOutput, int* ySizeOutput);//Lit le fichier Map
+    void readMap(int* xMaxOutput, int* yMaxOutput, int* zMaxOutput, string* dataOutput, int* xSizeOutput, int* ySizeOutput);//Lit le fichier Map
 
 #endif // READMAP_INCLUDED

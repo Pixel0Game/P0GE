@@ -37,10 +37,12 @@ int main ( int argc, char** argv )
     SDL_Flip(screen);
 
     /// Création du tableau map
-    //*
 
-    int *xIn(0);
-    int *yIn(0);
+    ///Initialisation des variable de la map.
+    int* zIn(NULL);
+    int z(0);
+    int *xIn(NULL);
+    int *yIn(NULL);
     int x(0),y(0);
     int *xSizeIn(0);
     int *ySizeIn(0);
@@ -50,38 +52,51 @@ int main ( int argc, char** argv )
 
     xIn = &x;
     yIn = &y;
+    zIn = &z;
     xSizeIn = &xSize;
     ySizeIn = &ySize;
     dataIn = &data;
-    readMap(xIn, yIn, dataIn, xSizeIn, ySizeIn);
+    readMap(xIn, yIn, zIn, dataIn, xSizeIn, ySizeIn);
     int planeX(0);
     int planeY(0);
 
-    int const xC = x;
-    int const yC = y;
+    const int xC = x;
+    const int yC = y;
+    const int zC = z;
     int i(0);
-    int mapTable[xC][yC];
+    int*** mapTable; mapTable = new int**[xC];
+    for (x=0; x<xC; x++)
+    {
+        mapTable[x] = new int*[yC];
+        for (y=0; y<yC; y++)
+        {
+            mapTable[x][y] = new int[zC];
+        }
+    }
     for(x=0; x<xC; x++)
     {
         for(y=0; y<yC; y++)
         {
-            if (data[i] == 'o')
+            for(z=0; z<zC; z++)
             {
-                planeX = x;
-                planeY = y;
-                mapTable[x][y] = ('d');
-            }
-            else
-            {
-                mapTable[x][y]= (data[i]);
-            }
-            i++;
+                if (data[i] == 'o')
+                {
+                    planeX = x;
+                    planeY = y;
+                    mapTable[x][y][z] = ('d');
+                }
+                else
+                {
+                    mapTable[x][y][z]= (data[i]);
+                }
+                i++;
 
+            }
         }
     }
 
     ///Fonction d'affichage.
-    mainLoop(screen, planeX, planeY, xC, yC, &mapTable[0][0], xSize, ySize);
+    mainLoop(screen, planeX, planeY, xC, yC, zC, mapTable, xSize, ySize);
 
     SDL_FreeSurface(screen);
     //Tout les voyants sont au vert !

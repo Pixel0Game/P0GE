@@ -3,9 +3,9 @@
 #include "display.h"
 #include "control.h"
 
-void mainLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int* mapTable, int xSize, int ySize)
+void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, const int zC, int*** mapTable, int xSize, int ySize)
 {
-        ///Chargement des images
+    ///Chargement des images
         SDL_Surface* map [15] = {NULL};
         map[0] = IMG_Load("graph/Map/Angle_UL_Black.png");
         map[1] = IMG_Load("graph/Map/Angle_UR_Black.png");
@@ -21,19 +21,22 @@ void mainLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int
         SDL_Surface* rP = IMG_Load("graph/Papercraft/right.png");
         SDL_Surface* lP = IMG_Load("graph/Papercraft/left.png");
         SDL_Surface** Papercraft = &uP;
-    ///Fin du chargement.
+    ///Fin.
 
-    SDL_Rect position;
-        position.x = (0);
-        position.y = (0);
-    SDL_Rect mainPosition;
-        mainPosition.x = x;
-        mainPosition.y = y;
+    ///Initialisation des positions.
+        SDL_Rect position;
+            position.x = (0);
+            position.y = (0);
+        SDL_Rect mainPosition;
+            mainPosition.x = x;
+            mainPosition.y = y;
+    ///Fin.
 
     bool done(false);
     bool start(false);
     SDL_EnableKeyRepeat(100, 100);
 
+    ///Boucle principale.
     while (!done)
     {
         //Attente d'un événement
@@ -47,24 +50,24 @@ void mainLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int
                     break;
 
                 // check for keypresses
-                case SDL_KEYDOWN:
+                case SDL_KEYDOWN://Vérification du clavier 'touche pressé'
 
                     if (event.key.keysym.sym == SDLK_ESCAPE)
                             {done = true;}
                     if (event.key.keysym.sym == SDLK_KP2)
-                        if (mapTable[mainPosition.x*yC+(mainPosition.y+1)] == 'd')
+                        if (mapTable[mainPosition.x][mainPosition.y+1][0] == 'd')
                             {sKeyDown(&mainPosition);
                             Papercraft = &dP;}
                     if (event.key.keysym.sym == SDLK_KP8)
-                        if (mapTable[mainPosition.x*yC+(mainPosition.y-1)] == 'd')
+                        if (mapTable[mainPosition.x][mainPosition.y-1][0] == 'd')
                             {zKeyDown(&mainPosition);
                             Papercraft =&uP;}
                     if (event.key.keysym.sym == SDLK_KP4)
-                        if (mapTable[(mainPosition.x-1)*yC+(mainPosition.y)] == 'd')
+                        if (mapTable[mainPosition.x-1][mainPosition.y][0] == 'd')
                             {qKeyDown(&mainPosition);
                             Papercraft =&lP;}
                     if (event.key.keysym.sym == SDLK_KP6)
-                        if (mapTable[(mainPosition.x+1)*yC+(mainPosition.y)] == 'd')
+                        if (mapTable[mainPosition.x+1][mainPosition.y][0] == 'd')
                             {dKeyDown(&mainPosition);
                             Papercraft=&rP;}
                         start = true;
@@ -72,9 +75,9 @@ void mainLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int
 
             }
 
-            if (start)
+            if (start)//Ne pas actualiser l'écran tant qu'une touche n'a pas été pressée.
             {
-                screen = displayLoop(screen, xC, yC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft);
+                screen = displayLoop(screen, xC, yC, zC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft);
                 SDL_Flip(screen);
             }
 
@@ -82,6 +85,9 @@ void mainLoop(SDL_Surface* screen, int x, int y, int const xC, int const yC, int
         }
 
     }
+    ///Fin de la boucle.
+
+    ///Libération de la mémoire.
     for (x=0;x<15;x++)
     {
         SDL_FreeSurface(map[x]);

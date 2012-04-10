@@ -3,7 +3,7 @@
 #include <string>
 #include "readMap.h"
 
-void readMap(int *xMaxOutput, int* yMaxOutput, string* dataOutput, int* xSizeOutput, int* ySizeOutput)
+void readMap(int *xMaxOutput, int* yMaxOutput, int* zMaxOutput, string* dataOutput, int* xSizeOutput, int* ySizeOutput)
 {
     ifstream flux("files/map_01.map");
 
@@ -13,6 +13,7 @@ void readMap(int *xMaxOutput, int* yMaxOutput, string* dataOutput, int* xSizeOut
     {
         flux >> *xMaxOutput;
         flux >> *yMaxOutput;
+        flux >> *zMaxOutput;
         flux >> *xSizeOutput;
         flux >> *ySizeOutput;
         flux >> *dataOutput;
