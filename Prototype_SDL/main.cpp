@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include "display.h"
 #include "event.h"
+#include <SDL/SDL_ttf.h>
 
 using namespace std;
 
@@ -73,11 +74,11 @@ int main ( int argc, char** argv )
             mapTable[x][y] = new int[zC];
         }
     }
-    for(x=0; x<xC; x++)
+    for(z=0; z<zC; z++)
     {
-        for(y=0; y<yC; y++)
+        for(x=0; x<xC; x++)
         {
-            for(z=0; z<zC; z++)
+            for(y=0; y<yC; y++)
             {
                 if (data[i] == 'o')
                 {
@@ -108,6 +109,7 @@ int main ( int argc, char** argv )
         delete mapTable[x];
     }
     delete mapTable;
+
     //Tout les voyants sont au vert !
     printf("Exited cleanly\n");
     return 0;

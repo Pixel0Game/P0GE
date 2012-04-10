@@ -41,6 +41,8 @@
 			<Add library="winmm" />
 			<Add library="dxguid" />
 			<Add library="C:\Program Files (x86)\CodeBlocks\SDL-1.2.14\lib\SDL_image.lib" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\x86\SDL_ttf.lib" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\x64\SDL_ttf.lib" />
 			<Add directory="C:\Program Files (x86)\CodeBlocks\SDL-1.2.14\lib" />
 		</Linker>
 		<Unit filename="cb.bmp" />

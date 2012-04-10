@@ -5,7 +5,7 @@
 
 void readMap(int *xMaxOutput, int* yMaxOutput, int* zMaxOutput, string* dataOutput, int* xSizeOutput, int* ySizeOutput)
 {
-    ifstream flux("files/map_01.map");
+    ifstream flux("files/map_02.map");
 
 
 
