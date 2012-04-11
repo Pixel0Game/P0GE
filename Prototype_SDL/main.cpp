@@ -22,8 +22,8 @@ int main ( int argc, char** argv )
     atexit(SDL_Quit);
 
     ///Création de la surface screen
-    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 16,
-                                           SDL_HWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(800, 600, 16,
+                                           SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
     if ( !screen )
     {
         cout << "Unable to set 640x480 video:" << SDL_GetError();
@@ -84,7 +84,7 @@ int main ( int argc, char** argv )
                 {
                     planeX = x;
                     planeY = y;
-                    mapTable[x][y][z] = ('d');
+                    mapTable[x][y][z] = ('0');
                 }
                 else
                 {

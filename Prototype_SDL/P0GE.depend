@@ -216,16 +216,17 @@
 	"display.h"
 	"control.h"
 
-1334061233 source:c:\users\louis\p0ge\prototype_sdl\display.cpp
+1334094716 source:c:\users\louis\p0ge\prototype_sdl\display.cpp
 	<SDL.h>
 	<SDL_image.h>
+	<SDL/SDL_TTF.h>
 	"display.h"
 
-1334060864 c:\users\louis\p0ge\prototype_sdl\display.h
+1334094034 c:\users\louis\p0ge\prototype_sdl\display.h
 
 1333189590 c:\users\louis\p0ge\prototype_sdl\control.h
 
-1334079622 source:c:\users\louis\p0ge\prototype_sdl\main.cpp
+1334091879 source:c:\users\louis\p0ge\prototype_sdl\main.cpp
 	<iostream>
 	<string>
 	"readMap.h"
@@ -237,7 +238,7 @@
 
 1334055418 c:\users\louis\p0ge\prototype_sdl\readmap.h
 
-1334079814 source:c:\users\louis\p0ge\prototype_sdl\readmap.cpp
+1334091724 source:c:\users\louis\p0ge\prototype_sdl\readmap.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -248,7 +249,7 @@
 	<SDL.h>
 	"control.h"
 
-1334061260 source:c:\users\louis\p0ge\prototype_sdl\event.cpp
+1334095461 source:c:\users\louis\p0ge\prototype_sdl\event.cpp
 	<SDL.h>
 	<SDL_image.h>
 	"display.h"

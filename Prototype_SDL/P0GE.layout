@@ -4,23 +4,23 @@
 	<File name="control.cpp" open="1" top="0" tabpos="2">
 		<Cursor position="194" topLine="0" />
 	</File>
-	<File name="display.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="2068" topLine="34" />
+	<File name="display.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="884" topLine="62" />
 	</File>
 	<File name="display.h" open="1" top="0" tabpos="4">
-		<Cursor position="160" topLine="0" />
+		<Cursor position="281" topLine="0" />
 	</File>
 	<File name="event.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="2387" topLine="75" />
+		<Cursor position="5018" topLine="42" />
 	</File>
 	<File name="event.h" open="1" top="0" tabpos="8">
-		<Cursor position="164" topLine="0" />
+		<Cursor position="188" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="2517" topLine="93" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="2035" topLine="89" />
 	</File>
 	<File name="readMap.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="512" topLine="1" />
+		<Cursor position="197" topLine="0" />
 	</File>
 	<File name="readMap.h" open="1" top="0" tabpos="7">
 		<Cursor position="146" topLine="0" />

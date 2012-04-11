@@ -7,19 +7,13 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
 {
     ///Chargement des images
         SDL_Surface* map [15] = {NULL};
-        map[0] = IMG_Load("graph/Map/Angle_UL_Black.png");
-        map[1] = IMG_Load("graph/Map/Angle_UR_Black.png");
-        map[2] = IMG_Load("graph/Map/Angle_DL_Black.png");
-        map[3] = IMG_Load("graph/Map/Angle_DR_Black.png");
-        map[4] = IMG_Load("graph/Map/L_Black.png");
-        map[5] = IMG_Load("graph/Map/R_Black.png");
-        map[6] = IMG_Load("graph/Map/U_Black.png");
-        map[7] = IMG_Load("graph/Map/D_Black.png");
-        map[8] = IMG_Load("graph/Map/White.png");
-        SDL_Surface* uP = IMG_Load("graph/Papercraft/up.png");
-        SDL_Surface* dP = IMG_Load("graph/Papercraft/down.png");
-        SDL_Surface* rP = IMG_Load("graph/Papercraft/right.png");
-        SDL_Surface* lP = IMG_Load("graph/Papercraft/left.png");
+        map[0] = IMG_Load("graph/Pac/Wall.png");
+        map[1] = IMG_Load("graph/Pac/Coin.png");
+        map[2] = IMG_Load("graph/Pac/Glass.jpg");
+        SDL_Surface* uP = IMG_Load("graph/Pac/Main/Up.png");
+        SDL_Surface* dP = IMG_Load("graph/Pac/Main/Down.png");
+        SDL_Surface* rP = IMG_Load("graph/Pac/Main/Right.png");
+        SDL_Surface* lP = IMG_Load("graph/Pac/Main/Left.png");
         SDL_Surface** Papercraft = &uP;
     ///Fin.
 
@@ -31,7 +25,7 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
             mainPosition.x = x;
             mainPosition.y = y;
     ///Fin.
-
+    int score(0);
     bool done(false);
     bool start(false);
     SDL_EnableKeyRepeat(100, 100);
@@ -55,21 +49,69 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
                     if (event.key.keysym.sym == SDLK_ESCAPE)
                             {done = true;}
                     if (event.key.keysym.sym == SDLK_KP2)
-                        if (mapTable[mainPosition.x][mainPosition.y+1][0] == 'd')
-                            {sKeyDown(&mainPosition);
-                            Papercraft = &dP;}
+                    {
+                        switch (mapTable[mainPosition.x][mainPosition.y+1][0])
+                        {
+                            case '0':
+                                sKeyDown(&mainPosition);
+                                Papercraft = &dP;
+                                break;
+                            case 'c':
+                                sKeyDown(&mainPosition);
+                                Papercraft = &dP;
+                                score++;
+                                mapTable[mainPosition.x][mainPosition.y][0] = '0';
+                                break;
+                        }
+                    }
                     if (event.key.keysym.sym == SDLK_KP8)
-                        if (mapTable[mainPosition.x][mainPosition.y-1][0] == 'd')
-                            {zKeyDown(&mainPosition);
-                            Papercraft =&uP;}
+                    {
+                        switch(mapTable[mainPosition.x][mainPosition.y-1][0])
+                        {
+                            case '0':
+                                zKeyDown(&mainPosition);
+                                Papercraft =&uP;
+                                break;
+                            case 'c':
+                                zKeyDown(&mainPosition);
+                                Papercraft =&uP;
+                                score++;
+                                mapTable[mainPosition.x][mainPosition.y][0] = '0';
+                                break;
+                        }
+                    }
                     if (event.key.keysym.sym == SDLK_KP4)
-                        if (mapTable[mainPosition.x-1][mainPosition.y][0] == 'd')
-                            {qKeyDown(&mainPosition);
-                            Papercraft =&lP;}
+                    {
+                        switch (mapTable[mainPosition.x-1][mainPosition.y][0])
+                        {
+                            case '0':
+                                qKeyDown(&mainPosition);
+                                Papercraft =&lP;
+                                break;
+                            case 'c':
+                                qKeyDown(&mainPosition);
+                                Papercraft =&lP;
+                                score++;
+                                mapTable[mainPosition.x][mainPosition.y][0] = '0';
+                                break;
+                        }
+                    }
                     if (event.key.keysym.sym == SDLK_KP6)
-                        if (mapTable[mainPosition.x+1][mainPosition.y][0] == 'd')
-                            {dKeyDown(&mainPosition);
-                            Papercraft=&rP;}
+                    {
+                        switch(mapTable[mainPosition.x+1][mainPosition.y][0])
+                        {
+                            case '0':
+                                dKeyDown(&mainPosition);
+                                Papercraft=&rP;
+                                break;
+                            case 'c':
+                                dKeyDown(&mainPosition);
+                                Papercraft=&rP;
+                                score++;
+                                mapTable[mainPosition.x][mainPosition.y][0] = '0';
+                                break;
+                        }
+                    }
                         start = true;
                 break;
 
@@ -77,7 +119,7 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
 
             if (start)//Ne pas actualiser l'écran tant qu'une touche n'a pas été pressée.
             {
-                screen = displayLoop(screen, xC, yC, zC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft);
+                screen = displayLoop(screen, xC, yC, zC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft, score);
                 SDL_Flip(screen);
             }
 
