@@ -2,6 +2,8 @@
 #include <SDL_image.h>
 #include "display.h"
 #include "control.h"
+#include "Block.h"
+#include "readFile.h"
 
 void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, const int zC, int*** mapTable, int xSize, int ySize)
 {
@@ -9,12 +11,16 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
         SDL_Surface* map [15] = {NULL};
         map[0] = IMG_Load("graph/Pac/Wall.png");
         map[1] = IMG_Load("graph/Pac/Coin.png");
-        map[2] = IMG_Load("graph/Pac/Glass.jpg");
+            SDL_Surface* tmp = IMG_Load("graph/Pac/Glass.png");
+        map[2] = SDL_DisplayFormat(tmp);
+            SDL_FreeSurface(tmp);
         SDL_Surface* uP = IMG_Load("graph/Pac/Main/Up.png");
         SDL_Surface* dP = IMG_Load("graph/Pac/Main/Down.png");
         SDL_Surface* rP = IMG_Load("graph/Pac/Main/Right.png");
         SDL_Surface* lP = IMG_Load("graph/Pac/Main/Left.png");
         SDL_Surface** Papercraft = &uP;
+        Block glass(1,1,1,true,map[2]);
+
     ///Fin.
 
     ///Initialisation des positions.
@@ -119,7 +125,7 @@ void mainLoop(SDL_Surface* screen, int x, int y, const int xC, const int yC, con
 
             if (start)//Ne pas actualiser l'écran tant qu'une touche n'a pas été pressée.
             {
-                screen = displayLoop(screen, xC, yC, zC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft, score);
+                screen = displayLoop(screen, xC, yC, zC, mapTable, xSize, ySize, position, mainPosition, &map[0], Papercraft, score, glass);
                 SDL_Flip(screen);
             }
 

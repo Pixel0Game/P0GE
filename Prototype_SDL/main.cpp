@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
-#include "readMap.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include "display.h"
 #include "event.h"
+#include "readFile.h"
 #include <SDL/SDL_ttf.h>
 
 using namespace std;
@@ -76,9 +76,9 @@ int main ( int argc, char** argv )
     }
     for(z=0; z<zC; z++)
     {
-        for(x=0; x<xC; x++)
+        for(y=0; y<yC; y++)
         {
-            for(y=0; y<yC; y++)
+            for(x=0; x<xC; x++)
             {
                 if (data[i] == 'o')
                 {
@@ -100,13 +100,13 @@ int main ( int argc, char** argv )
     mainLoop(screen, planeX, planeY, xC, yC, zC, mapTable, xSize, ySize);
 
     SDL_FreeSurface(screen);
-    for (x=0; x<xC; x++)
+    for (y=0; y<yC; y++)
     {
-        for (y=0; y<yC; y++)
+        for (x=0; x<xC; x++)
         {
             delete mapTable[x][y];
         }
-        delete mapTable[x];
+        delete mapTable[y];
     }
     delete mapTable;
 

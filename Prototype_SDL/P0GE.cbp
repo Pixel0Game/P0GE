@@ -45,7 +45,10 @@
 			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\x64\SDL_ttf.lib" />
 			<Add directory="C:\Program Files (x86)\CodeBlocks\SDL-1.2.14\lib" />
 		</Linker>
-		<Unit filename="cb.bmp" />
+		<Unit filename="Block.cpp" />
+		<Unit filename="Block.h" />
+		<Unit filename="PNJ.cpp" />
+		<Unit filename="PNJ.h" />
 		<Unit filename="control.cpp" />
 		<Unit filename="control.h" />
 		<Unit filename="display.cpp" />
@@ -53,8 +56,8 @@
 		<Unit filename="event.cpp" />
 		<Unit filename="event.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="readMap.cpp" />
-		<Unit filename="readMap.h" />
+		<Unit filename="readFile.cpp" />
+		<Unit filename="readFile.h" />
 		<Unit filename="version.h" />
 		<Extensions>
 			<code_completion />

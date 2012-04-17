@@ -1,0 +1,32 @@
+//Glass
+{
+	id: g
+	x: 1
+	y: 1
+	z: 1
+	solid: 1
+	sprite:
+graph/Pac/glass.png
+	end
+}
+//Wall
+{
+	id: w
+	x: 1
+	y: 1
+	z:1
+	solid: 1
+	sprite: graph/Pac/wall.png
+	end
+}
+//Coin
+{
+	id: c
+	x: 1
+	y: 1
+	z: 1
+	solid : 0
+	sprite: graph/Pac/coin.png
+	end
+}
+END

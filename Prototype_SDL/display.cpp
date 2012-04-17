@@ -2,8 +2,9 @@
 #include <SDL_image.h>
 #include <SDL/SDL_TTF.h>
 #include "display.h"
+#include "Block.h"
 
-SDL_Surface* displayLoop(SDL_Surface* screen, const int xC, const int yC, const int zC, int*** mapTable, int xSize, int ySize, SDL_Rect position, SDL_Rect mainPosition, SDL_Surface* map[], SDL_Surface** Papercraft, int score)
+SDL_Surface* displayLoop(SDL_Surface* screen, const int xC, const int yC, const int zC, int*** mapTable, int xSize, int ySize, SDL_Rect position, SDL_Rect mainPosition, SDL_Surface* map[], SDL_Surface** Papercraft, int score, Block glass)
 {
     TTF_Init();
     char scoretext[10] ="";
@@ -17,49 +18,21 @@ SDL_Surface* displayLoop(SDL_Surface* screen, const int xC, const int yC, const 
     int z(0);
     //Effacement de l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
-    SDL_SetColorKey(map[2], SDL_SRCCOLORKEY, SDL_MapRGB(map[2]->format, 255,
-255, 255));
+    SDL_SetColorKey(map[2], SDL_SRCCOLORKEY, SDL_MapRGB(map[2]->format, 255,255, 255));
     SDL_SetAlpha(map[2],SDL_SRCALPHA, 128);
 
 
     //Affichage de la map
     for(z=0; z<zC; z++)
     {
-        for(x=0; x<xC; x++)
+        for(y=0; y<yC; y++)
         {
-            for(y=0; y<yC; y++)
+            for(x=0; x<xC; x++)
             {
                 position.x = (x*xSize);
                 position.y = (y*ySize);
                 switch (mapTable[x][y][z])
                 {
-                    /*case 'z':
-                        SDL_BlitSurface(map [0], 0, screen, &position);
-                        break;
-                    case 'e':
-                        SDL_BlitSurface(map[6], 0, screen, &position);
-                        break;
-                    case 'r':
-                        SDL_BlitSurface(map[1], 0, screen, &position);
-                        break;
-                    case 's':
-                        SDL_BlitSurface(map[4], 0, screen, &position);
-                        break;
-                    case 'd':
-                        SDL_BlitSurface(map[8], 0, screen, &position);
-                        break;
-                    case 'f':
-                        SDL_BlitSurface(map[5], 0, screen, &position);
-                        break;
-                    case 'x':
-                        SDL_BlitSurface(map[2], 0, screen, &position);
-                        break;
-                    case 'c':
-                        SDL_BlitSurface(map[7], 0, screen, &position);
-                        break;
-                    case 'v':
-                        SDL_BlitSurface(map[3], 0, screen, &position);
-                        break;*/
                     case 'w':
                         SDL_BlitSurface(map[0], 0, screen, &position);
                         break;
@@ -67,7 +40,7 @@ SDL_Surface* displayLoop(SDL_Surface* screen, const int xC, const int yC, const 
                         SDL_BlitSurface(map[1], 0, screen, &position);
                         break;
                     case 'g':
-                        SDL_BlitSurface(map[2], 0, screen, &position);
+                        SDL_BlitSurface(glass.getSprite(), 0, screen, &position);
                         break;
                     case '0':
                         break;
